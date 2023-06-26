@@ -4,25 +4,23 @@ import { BearsListItem } from '../BeersListItem';
 import './BeersList.scss';
 
 interface BearsListProps {
-    bearsList: Bears[];
+  bearsList: Bears[];
 }
 
-export const BearsList: React.FC<BearsListProps> = ({
-    bearsList,
-}) => {
-
-    return (
-        <div className='beersList'>
-            {bearsList.map((value) => {
-                return (
-                    <BearsListItem
-                        id={value.id}
-                        img={value.image_url}
-                        name={value.name}
-                        tagline={value.tagline}
-                    />
-                );
-            })}
-        </div>
-    );
+export const BearsList: React.FC<BearsListProps> = ({ bearsList }) => {
+  return (
+    <div className='beersList'>
+      {bearsList.map((value) => {
+        return (
+          <BearsListItem
+            key={value.id}
+            id={value.id}
+            img={value.image_url}
+            name={value.name}
+            tagline={value.tagline}
+          />
+        );
+      })}
+    </div>
+  );
 };
