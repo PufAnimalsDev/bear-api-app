@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/bear-api-app/static/css/main.82a4d933.css",
-    "main.js": "/bear-api-app/static/js/main.cbcda603.js",
+    "main.js": "/bear-api-app/static/js/main.611ed17d.js",
     "index.html": "/bear-api-app/index.html",
     "main.82a4d933.css.map": "/bear-api-app/static/css/main.82a4d933.css.map",
-    "main.cbcda603.js.map": "/bear-api-app/static/js/main.cbcda603.js.map"
+    "main.611ed17d.js.map": "/bear-api-app/static/js/main.611ed17d.js.map"
   },
   "entrypoints": [
     "static/css/main.82a4d933.css",
-    "static/js/main.cbcda603.js"
+    "static/js/main.611ed17d.js"
   ]
 }
