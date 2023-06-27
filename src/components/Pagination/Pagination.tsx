@@ -24,11 +24,10 @@ export const Pagination = (props: PaginationProps) => {
       {total.length > 1 && (
         <ul className='pagination__list'>
           <li className='pagination__list-item pagination__list-prev'>
-            <a
+            <button
               className={classNames('pagination__list-link', {
                 disabled: currentPage === 1,
               })}
-              href='/#'
               onClick={onHandlePrevPage}
             >
               <svg
@@ -46,27 +45,26 @@ export const Pagination = (props: PaginationProps) => {
                   fill='currentColor'
                 />
               </svg>
-            </a>
+            </button>
           </li>
           {total.map((page) => (
             <li className='pagination__list-item' key={page}>
-              <a
+              <button
                 className={classNames('pagination__list-link', {
                   'pagination__list-link--is-current': currentPage === page,
                 })}
-                href='/#'
+
                 onClick={() => onHandleChangePage(page)}
               >
                 {page}
-              </a>
+              </button>
             </li>
           ))}
           <li className='pagination__list-item pagination__list-next'>
-            <a
+            <button
               className={classNames('pagination__list-link', {
                 disabled: currentPage === lastPage,
               })}
-              href='/#'
               onClick={onHandleNextPage}
             >
               <svg
@@ -84,7 +82,7 @@ export const Pagination = (props: PaginationProps) => {
                   fill='currentColor'
                 />
               </svg>
-            </a>
+            </button>
           </li>
         </ul>
       )}
