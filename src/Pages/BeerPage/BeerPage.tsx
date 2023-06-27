@@ -1,88 +1,80 @@
 import { useState, useEffect } from 'react';
-
-interface Malt {
-  name: string;
-  amount: {
-    value: number;
-    unit: string;
-  };
-}
-
-interface Hops {
-  name: string;
-  amount: {
-    value: number;
-    unit: string;
-  };
-}
-
-interface Ingredients {
-  malt: Malt[];
-  hops: Hops[];
-  yeast: string;
-}
-
-interface Props {
-  id: number;
-  name: string;
-  tagline: string;
-  description: string;
-  image_url: string;
-  abv: number;
-  ibu: number;
-  ingredients: Ingredients;
-}
-
+import { Ingredients } from '../../types/Ingredients'
+import { BeerDetails } from '../../types/BeerDetails'
+import { getSelectedBeer } from "../../api/beers";
+import { Loader } from '../../components/Loader';
 interface BeerPageProps {
-  id: number;
+    id: number;
 }
 
 export const BeerPage = (props: BeerPageProps) => {
-  const { id } = props;
-  const [result, setResult] = useState<Props>();
-  const [ingredients, setIngredients] = useState<Ingredients>();
+    const { id } = props;
+    const [beerDetails, setBeerDetails] = useState<BeerDetails>();
+    const [ingredients, setIngredients] = useState<Ingredients>();
+    const [hasError, setHasError] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    const getData = async () => {
-      const data = await fetch(`https://api.punkapi.com/v2/beers/${id}`, {
-        method: 'GET',
-      });
-      const jsonData = await data.json();
-      setResult(jsonData[0]);
-      setIngredients(jsonData[0].ingredients);
-    };
 
-    getData();
-  }, [id]);
+    const loadBeer = async () => {
+        try {
+            setIsLoading(true);
+            const loadedBeer = await getSelectedBeer(id);
+            setBeerDetails(loadedBeer[0])
+            setIngredients(loadedBeer[0].ingredients)
+        } catch (error) {
+            setHasError(true);
+        } finally {
+            setIsLoading(false);
+        }
+    }
 
-  console.log(ingredients);
-  return (
-    <div>
-      <img src={result?.image_url} alt={result?.name} />
-      <div>{result?.name}</div>
-      <div>{result?.tagline}</div>
-      <div>{result?.description}</div>
-      <div>{result?.abv}</div>
-      <div>{result?.ibu}</div>
-      {ingredients?.malt.map((value) => {
-        return (
-          <>
-            <div>{value.name}</div>
-            <div>{value.amount.value}</div>
-            <div>{value.amount.unit}</div>
-          </>
-        );
-      })}
-      {ingredients?.hops.map((value) => {
-        return (
-          <>
-            <div>{value.name}</div>
-            <div>{value.amount.value}</div>
-            <div>{value.amount.unit}</div>
-          </>
-        );
-      })}
-      <div>{ingredients?.yeast}</div>
-    </div>
-  );
+    useEffect(() => {
+        loadBeer();
+    }, [id]);
+
+    return (
+        <>
+            {isLoading && <Loader />}
+            {!isLoading && <>
+                {!hasError
+                    ?
+                    <div>
+                        
+                        <img src={beerDetails?.image_url} alt={beerDetails?.name} />
+                        <div>{beerDetails?.name}</div>
+                        <div>{beerDetails?.tagline}</div>
+                        <div>{beerDetails?.description}</div>
+                        <div>{beerDetails?.abv}</div>
+                        <div>{beerDetails?.ibu}</div>
+                        {ingredients?.malt.map((malt) => {
+                            const { name, amount } = malt;
+                            const { value, unit } = amount;
+                            return (
+                                <>
+                                    <div>{name}</div>
+                                    <div>{value}</div>
+                                    <div>{unit}</div>
+                                </>
+                            );
+                        })}
+                        {ingredients?.hops.map((hops) => {
+                            const { name, amount } = hops;
+                            const { value, unit } = amount;
+                            return (
+                                <>
+                                    <div>{name}</div>
+                                    <div>{value}</div>
+                                    <div>{unit}</div>
+                                </>
+                            );
+                        })}
+                        <div>{ingredients?.yeast}</div>
+                    </div>
+                    : <p>Error</p>
+                }
+            </>}
+
+        </>
+
+    );
 };
