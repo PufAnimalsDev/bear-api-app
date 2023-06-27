@@ -6,6 +6,6 @@ export const getBeers = (URL: string) => {
   return service.get<Bears[]>(`${URL}`);
 };
 
-export const getSelectedBeer = (beerId: number) => {
+export const getSelectedBeer = (beerId: string) => {
   return service.get<BeerDetails[]>(`${beerId}`);
 };

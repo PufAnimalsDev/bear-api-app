@@ -3,14 +3,15 @@
   width: 100%;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 
   &__content {
     border-radius: 50%;
-    width: 2em;
-    height: 2em;
+    width: 8em;
+    height: 8em;
     margin: 1em auto;
-    border: 0.3em solid #ddd;
-    border-left-color: #000;
+    border: 0.5em solid #eee;
+    border-left-color: #ffc930;
     animation: load8 1.2s infinite linear;
   }
 }
@@ -19,6 +20,7 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }

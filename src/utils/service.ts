@@ -1,4 +1,4 @@
-const BASE_URL = 'https://api.punkapi.com/v2/beers/';
+const BASE_URL = 'https://api.punkapi.com/v2/beers';
 
 function request<T>(url: string): Promise<T> {
   return fetch(BASE_URL + url).then((response) => {

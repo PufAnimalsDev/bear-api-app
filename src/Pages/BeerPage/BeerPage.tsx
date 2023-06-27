@@ -20,13 +20,16 @@ export const BeerPage = (props: BeerPageProps) => {
   const loadBeer = async () => {
     try {
       setIsLoading(true);
-      const loadedBeer = await getSelectedBeer(id);
+      const loadedBeer = await getSelectedBeer(`/${id}`);
       setBeerDetails(loadedBeer[0]);
       setIngredients(loadedBeer[0].ingredients);
     } catch (error) {
       setHasError(true);
     } finally {
-      setIsLoading(false);
+      setTimeout(
+        () => {
+          setIsLoading(false);
+        }, 1000);
     }
   };
 
@@ -73,11 +76,11 @@ export const BeerPage = (props: BeerPageProps) => {
                 </div>
                 <div className="table-content--malt">
                   {ingredients && <>
-                    {ingredients.malt.map((malt) => {
+                    {ingredients.malt.map((malt, index) => {
                       const { name, amount } = malt;
                       const { value, unit } = amount;
                       return (
-                        <div key={id} className="table-row">
+                        <div key={index} className="table-row">
                           <div className="table-data">{name}</div>
                           <div className="table-data">{value}</div>
                           <div className="table-data">{unit}</div>
@@ -91,19 +94,19 @@ export const BeerPage = (props: BeerPageProps) => {
               <h3 className='ingredients__title'>Hops: </h3>
               <div className="table">
                 <div className="table-header">
-                  <div className="header__item"><a id="name" className="filter__link" href="#">Name</a></div>
-                  <div className="header__item"><a id="value" className="filter__link filter__link--number" href="#">Value</a></div>
-                  <div className="header__item"><a id="unit" className="filter__link filter__link--number" href="#">Unit</a></div>
-                  <div className="header__item"><a id="add" className="filter__link filter__link--number" href="#">Add</a></div>
-                  <div className="header__item"><a id="attribute" className="filter__link filter__link--number" href="#">Attribute</a></div>
+                  <div className="header__item filter__link">Name</div>
+                  <div className="header__item filter__link filter__link--number">Value</div>
+                  <div className="header__item filter__link">Unit</div>
+                  <div className="header__item filter__link">Add</div>
+                  <div className="header__item filter__link">Attribute</div>
                 </div>
                 <div className="table-content--malt">
                   {ingredients && <>
-                    {ingredients.hops.map((hops) => {
+                    {ingredients.hops.map((hops, index) => {
                       const { name, amount, add, attribute } = hops;
                       const { value, unit } = amount;
                       return (
-                        <div key={id} className="table-row">
+                        <div key={index} className="table-row">
                           <div className="table-data">{name}</div>
                           <div className="table-data">{value}</div>
                           <div className="table-data">{unit}</div>
