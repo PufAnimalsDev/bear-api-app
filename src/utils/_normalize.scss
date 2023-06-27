@@ -1,0 +1,32 @@
+@import "./mixins.scss";
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
+    color: #313237;
+}
+
+.page-container {
+    margin: 0 auto;
+    max-width: 280px;
+
+    @include tablet {
+        padding: 0 20px;
+
+        max-width: 640px;
+    }
+
+    @include desktop {
+        padding: 0 20px;
+
+        max-width: 1200px;
+    }
+}

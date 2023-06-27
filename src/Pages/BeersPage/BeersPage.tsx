@@ -4,6 +4,7 @@ import { BearsList } from '../../components/BearsList';
 import { Pagination } from '../../components/Pagination/Pagination';
 import { BeerPage } from '../BeerPage';
 import { useParams } from 'react-router-dom';
+import { Header } from '../../components/Header/Header';
 
 export const BeersPage: React.FC = () => {
   const [result, setResult] = useState<Bears[]>([]);
@@ -69,17 +70,21 @@ export const BeersPage: React.FC = () => {
       {beerId ? (
         <BeerPage id={Number(beerId)} />
       ) : (
-        <div className='page-container'>
-          <BearsList bearsList={currentBeers} />
-          <Pagination
-            total={pages(lastPage)}
-            currentPage={currentPage}
-            onHandlePrevPage={handlePrevPage}
-            onHandleNextPage={handleNextPage}
-            lastPage={lastPage}
-            onHandleChangePage={handleChangePage}
-          />
-        </div>
+        <>
+          <Header headTitle='Beers' />
+          <div className='page-container container'>
+
+            <BearsList bearsList={currentBeers} />
+            <Pagination
+              total={pages(lastPage)}
+              currentPage={currentPage}
+              onHandlePrevPage={handlePrevPage}
+              onHandleNextPage={handleNextPage}
+              lastPage={lastPage}
+              onHandleChangePage={handleChangePage}
+            />
+          </div></>
+
       )}
     </>
   );

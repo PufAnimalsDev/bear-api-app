@@ -1,94 +1,5 @@
-.breadcrumbs {
-  display: flex;
-  align-items: center;
-  margin-bottom: 24px;
-
-  &__text {
-    font-size: 12px;
-    font-weight: 600;
-    color: #89939a;
-  }
-
-  &__homeImg {
-    margin-right: 15px;
-  }
-
-  &__arrowImg {
-    margin-right: 13px;
-  }
-}
-
 .pagination {
   display: flex;
-
-  &__sort {
-    margin-right: 16px;
-
-    &-text {
-      color: #89939a;
-      margin-bottom: 4px;
-    }
-
-    &-select {
-      padding: 10px 12px;
-      width: 136px;
-      border: 1px solid #b4bdc4;
-      outline: none;
-    }
-  }
-
-  &__perPage {
-    &-text {
-      color: #89939a;
-      margin-bottom: 4px;
-    }
-
-    &-select {
-      padding: 10px 12px;
-      width: 136px;
-      border: 1px solid #b4bdc4;
-      outline: none;
-      font-size: 14px;
-      line-height: 21px;
-      margin-bottom: 24px;
-      color: #313237;
-      background: none;
-
-      &:focus {
-        border: 1px solid #313237;
-      }
-
-      &-option {
-        color: #89939a;
-        background: none;
-        background: #fff;
-
-        :hover {
-          color: #313237;
-          background: #fff;
-          background-color: #fff;
-        }
-
-        :focus {
-          background-color: #fff;
-        }
-
-        :checked {
-          color: #313237;
-          background: #fff;
-        }
-      }
-    }
-  }
-
-  .select__drop-down {
-    position: relative;
-
-    &__list {
-      top: -19px;
-      z-index: 1;
-    }
-  }
 
   &__list {
     display: flex;
@@ -114,13 +25,17 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 8px;
+      border-radius: 5px;
 
       &:hover {
-        border: 1px solid #313237;
+        color: #ffc930;
+        border: 1px solid #ffc930;
       }
 
       &--is-current {
-        background-color: #313237;
+        border: 1px solid #ffc930;
+
+        background-color: #ffc930;
         color: #fff;
       }
     }
@@ -158,67 +73,4 @@
       fill: #b4bdc4;
     }
   }
-}
-
-select {
-  position: relative;
-  min-width: 200px;
-}
-
-.select svg {
-  position: absolute;
-  right: 12px;
-  top: calc(50% - 3px);
-  width: 10px;
-  height: 6px;
-  stroke-width: 2px;
-  stroke: #9098a9;
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  pointer-events: none;
-}
-
-.select select {
-  padding: 7px 40px 7px 12px;
-  width: 100%;
-  border: 1px solid #e8eaed;
-  background: #fff;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 16px;
-  transition: all 150ms ease;
-}
-
-.select select:required:invalid {
-  color: #5a667f;
-}
-
-.select select option {
-  color: #223254;
-}
-
-.select select option[value=''][disabled] {
-  display: none;
-}
-
-.select select:focus {
-  outline: none;
-  border-color: black;
-}
-
-.select select:hover + svg {
-  stroke: red;
-}
-
-.sprites {
-  position: absolute;
-  width: 0;
-  height: 0;
-  pointer-events: none;
-  user-select: none;
-}
-
-.select select.decorated option:hover {
-  box-shadow: 0 0 10px 100px red inset;
 }

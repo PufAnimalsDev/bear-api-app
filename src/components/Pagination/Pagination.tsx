@@ -11,8 +11,13 @@ interface PaginationProps {
 }
 
 export const Pagination = (props: PaginationProps) => {
-  const { total, currentPage, lastPage, onHandlePrevPage, onHandleNextPage, onHandleChangePage } =
-    props;
+  const {
+    total,
+    currentPage,
+    lastPage,
+    onHandlePrevPage,
+    onHandleNextPage,
+    onHandleChangePage } = props;
 
   return (
     <div>

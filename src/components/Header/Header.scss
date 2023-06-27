@@ -1,0 +1,35 @@
+@import "../../utils/mixins";
+
+.header h1 {
+    padding-top: 20px;
+    color: #ffc930;
+    text-align: center;
+    font-size: 48px;
+    position: relative;
+    z-index: 1;
+
+    @include tablet {
+        padding-top: 70px;
+        font-size: 64px;
+
+    }
+
+    @include desktop {
+        padding-top: 70px;
+        font-size: 64px;
+
+    }
+}
+
+.header {
+    background: linear-gradient(0.25turn, #e459ea 0, #c84ded 16.67%, #a544f0 33.33%, #783cf2 50%, #2538f4 66.67%, #0039f5 83.33%, #003af6 100%);
+    height: 200px;
+}
+
+.arrow {
+    background-image: linear-gradient(0.25turn, #e459ea 0, #c84ded 16.67%, #a544f0 33.33%, #783cf2 50%, #2538f4 66.67%, #0039f5 83.33%, #003af6 100%);
+    clip-path: polygon(0 0, 0 100%, 100% 0);
+    width: 100vw;
+    height: 100px;
+    margin-bottom: 30px;
+}

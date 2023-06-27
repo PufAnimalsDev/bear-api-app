@@ -11,7 +11,7 @@ interface BearsListItemProps {
 
 export const BearsListItem: React.FC<BearsListItemProps> = ({ id, img, name, tagline }) => {
   return (
-    <Link to={`details/${id}`}>
+    <Link className="beer_link" to={`details/${id}`}>
       <div className='bears_item'>
         <div className='bears_item__content'>
           <img className='bears_item__image' src={img} alt={name} />

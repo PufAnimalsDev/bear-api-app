@@ -1,15 +1,26 @@
+.beer_link {
+  text-decoration: none;
+  cursor: auto;
+}
+
 .bears_item {
   display: flex;
   justify-content: center;
+
+  &__content:hover {
+    cursor: pointer;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, .1);
+  }
 
   &__content {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border: solid 1px black;
+    border: solid 2px grey;
     width: 200px;
     min-height: 300px;
+    border-radius: 10px;
   }
 
   &__image {
@@ -39,6 +50,7 @@
   &__name,
   &__tagline {
     text-align: center;
-    padding: 0 5px;
+    padding: 10px 5px;
+    color: grey
   }
 }
