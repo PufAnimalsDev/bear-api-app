@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/bear-api-app/static/css/main.82a4d933.css",
+    "main.js": "/bear-api-app/static/js/main.cbcda603.js",
+    "index.html": "/bear-api-app/index.html",
+    "main.82a4d933.css.map": "/bear-api-app/static/css/main.82a4d933.css.map",
+    "main.cbcda603.js.map": "/bear-api-app/static/js/main.cbcda603.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.82a4d933.css",
+    "static/js/main.cbcda603.js"
+  ]
+}
