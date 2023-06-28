@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/beer-api-app/static/css/main.52eaf81c.css",
+    "main.css": "/beer-api-app/static/css/main.6ad4bdb6.css",
     "main.js": "/beer-api-app/static/js/main.35010fe6.js",
     "static/media/fa-solid-900.ttf": "/beer-api-app/static/media/fa-solid-900.4a2cd718d7031b732e76.ttf",
     "static/media/fa-brands-400.ttf": "/beer-api-app/static/media/fa-brands-400.150de8eaa454d669c405.ttf",
@@ -16,11 +16,11 @@
     "static/media/Heart.svg": "/beer-api-app/static/media/Heart.935d05dce2643d76c0ea.svg",
     "static/media/Heart-filled.svg": "/beer-api-app/static/media/Heart-filled.0f63a9433e1ad3cf4072.svg",
     "index.html": "/beer-api-app/index.html",
-    "main.52eaf81c.css.map": "/beer-api-app/static/css/main.52eaf81c.css.map",
+    "main.6ad4bdb6.css.map": "/beer-api-app/static/css/main.6ad4bdb6.css.map",
     "main.35010fe6.js.map": "/beer-api-app/static/js/main.35010fe6.js.map"
   },
   "entrypoints": [
-    "static/css/main.52eaf81c.css",
+    "static/css/main.6ad4bdb6.css",
     "static/js/main.35010fe6.js"
   ]
 }
