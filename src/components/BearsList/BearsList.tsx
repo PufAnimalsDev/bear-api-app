@@ -18,6 +18,7 @@ export const BearsList: React.FC<BearsListProps> = ({ bearsList }) => {
             img={value.image_url}
             name={value.name}
             tagline={value.tagline}
+            bearsList ={bearsList}
           />
         );
       })}

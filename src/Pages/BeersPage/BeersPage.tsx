@@ -83,7 +83,8 @@ export const BeersPage: React.FC = () => {
         <>
           {
             !hasError && beerId ? (
-              <BeerPage id={Number(beerId)} />
+              <BeerPage id={Number(beerId)}
+                bearsList={currentBeers} />
             ) : (
               <>
                 <Header headTitle='Beers' />

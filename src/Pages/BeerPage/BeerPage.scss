@@ -19,6 +19,12 @@
     &__image-wrapper {
         display: flex;
         justify-content: center;
+        position: relative;
+
+        .bears_item__save-product {
+            position: absolute;
+            right: 60px;
+        }
     }
 
     &__image {

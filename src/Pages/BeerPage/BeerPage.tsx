@@ -5,17 +5,28 @@ import { getSelectedBeer } from '../../api/beers';
 import { Loader } from '../../components/Loader';
 import './BeerPage.scss';
 import { Header } from '../../components/Header/Header';
+import { useGlobalContext } from '../../context/GlobalContextProvider';
+import { Bears } from '../../types/Bears';
 
 interface BeerPageProps {
   id: number;
+  bearsList: Bears[];
 }
 
 export const BeerPage = (props: BeerPageProps) => {
-  const { id } = props;
+  const { id, bearsList } = props;
   const [beerDetails, setBeerDetails] = useState<BeerDetails>();
   const [ingredients, setIngredients] = useState<Ingredients>();
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const { addToFavourites, favourites } = useGlobalContext();
+
+  const isFavourited = favourites
+    .some(beerToFind => beerToFind.id === id);
+
+  const beer = bearsList
+    .filter(beerToFind => beerToFind.id === id);
+
 
   const loadBeer = async () => {
     try {
@@ -51,6 +62,11 @@ export const BeerPage = (props: BeerPageProps) => {
               <div className='simple-info'>
                 <div className='simple-info__image-wrapper'>
                   <img className="simple-info__image" src={image_url} alt={name} />
+                  <button
+                    onClick={() => addToFavourites(beer[0])}
+                    className={`bears_item__save-product ${isFavourited ? 'bears_item__save-product--selection' : ''}`}
+                  >
+                  </button>
                 </div>
                 <div className='simple-info__content'>
                   <div className='simple-info__content-info'>
