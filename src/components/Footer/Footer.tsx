@@ -1,5 +1,6 @@
 import "./Footer.scss";
 import Logo from "../../images/logo512.png"
+import { NavLink } from 'react-router-dom';
 
 export const Footer: React.FC = () => {
     const scrollToTop = () => {
@@ -21,9 +22,9 @@ export const Footer: React.FC = () => {
                             </a>
                         </li>
                         <li className="footer__nav__li text--uppercase">
-                            <a href="/" className="footer__nav__link">
-                                Contacts
-                            </a>
+                            <NavLink to="/contact" className="footer__nav__link">
+                                Contact
+                            </NavLink>
                         </li>
                     </ul>
                 </nav>

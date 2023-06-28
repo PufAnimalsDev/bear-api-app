@@ -1,0 +1,17 @@
+@import "../../utils/mixins";
+
+.form {
+    &__name-surname {
+        display: grid;
+        grid-template-columns: 1fr;
+        column-gap: 40px;
+
+        @include tablet {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @include desktop {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}
