@@ -1,9 +1,9 @@
-import { Bears } from '../types/Bears';
+import { Beers } from '../types/Beers';
 import { BeerDetails } from '../types/BeerDetails';
 import { service } from '../utils/service';
 
 export const getBeers = (URL: string) => {
-  return service.get<Bears[]>(`${URL}`);
+  return service.get<Beers[]>(`${URL}`);
 };
 
 export const getSelectedBeer = (beerId: string) => {

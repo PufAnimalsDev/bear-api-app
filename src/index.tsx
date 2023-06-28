@@ -1,10 +1,13 @@
-import ReactDOM from 'react-dom';
-import { HashRouter } from 'react-router-dom';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 import { App } from './App';
+import { GlobalContextProvider } from './context/GlobalContextProvider';
 
-ReactDOM.render(
-  <HashRouter>
-    <App />,
-  </HashRouter>,
-  document.getElementById('root'),
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+root.render(
+  <GlobalContextProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </GlobalContextProvider>,
 );

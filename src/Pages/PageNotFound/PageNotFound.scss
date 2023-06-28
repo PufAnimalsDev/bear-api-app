@@ -1,0 +1,72 @@
+@import '../../utils/mixins';
+
+.not-found-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-width: 320px;
+  margin-bottom: 100px;
+
+  &__error-code {
+    text-transform: uppercase;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 2px;
+    font-size: 100px;
+    margin: 0;
+    color: #ffc930;
+
+    @include tablet {
+      font-size: 172px;
+    }
+
+    @include desktop {
+      font-size: 172px;
+    }
+  }
+
+  &__title {
+    text-transform: capitalize;
+    font-size: 48px;
+    margin: 10px;
+    text-align: center;
+    padding: 0 16px;
+    color: #ffc930;
+
+    @include tablet {
+      font-size: 64px;
+    }
+
+    @include desktop {
+      font-size: 64px;
+    }
+  }
+
+  &__message {
+    color: #ffc930;
+
+    text-align: center;
+    padding: 0 16px;
+    max-width: 600px;
+  }
+
+  &__back-to-home {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 9.5px 60.5px;
+    color: #fff;
+    background: #ffc930;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}

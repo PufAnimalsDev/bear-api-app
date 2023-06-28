@@ -1,15 +1,16 @@
 .beer_link {
   text-decoration: none;
-  cursor: auto;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
 }
 
-.bears_item {
+.beers_item {
   display: flex;
   justify-content: center;
 
   &__content:hover {
-    cursor: pointer;
-    box-shadow: 0 2px 16px rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
   }
 
   &__content {
@@ -19,18 +20,20 @@
     flex-direction: column;
     border: solid 2px grey;
     width: 200px;
-    min-height: 300px;
+    min-height: 340px;
     border-radius: 10px;
   }
 
   &__image {
     padding: 10px;
     max-block-size: 120px;
+    align-self: center;
   }
 
   &__decoration {
     display: flex;
     align-items: center;
+    align-self: center;
 
     &__line {
       height: 1px;
@@ -51,6 +54,28 @@
   &__tagline {
     text-align: center;
     padding: 10px 5px;
-    color: grey
+    color: grey;
+  }
+
+  &__save-product {
+    width: 40px;
+    height: 40px;
+    background-image: url('../../images/Heart.svg');
+    border: 1px solid #b4bdc3;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #ffffff;
+
+    &:hover {
+      border: 1px solid #ffc930;
+      cursor: pointer;
+    }
+
+    &--selection {
+      background-image: url('../../images/Heart-filled.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      border: 1px solid #e2e6e9;
+    }
   }
 }

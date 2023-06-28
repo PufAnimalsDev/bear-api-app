@@ -1,0 +1,46 @@
+.swiper-container {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.swiper-button-next.swiper-button-disabled {
+  color: #ffc930;
+}
+
+.swiper-button-prev.swiper-button-disabled {
+  color: #ffc930;
+}
+
+.swiper-button-prev {
+  color: #ffc930 !important;
+}
+
+.swiper-button-next {
+  color: #ffc930 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #ffc930 !important;
+}
+
+.swiper-pagination {
+  margin-top: 30px !important;
+  position: unset !important;
+}
+
+.swiper-container {
+  margin: 100px auto;
+  width: 280px;
+}
+
+@media screen and (min-width: 640px) {
+  .swiper-container {
+    width: 640px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .swiper-container {
+    width: 1200px;
+  }
+}

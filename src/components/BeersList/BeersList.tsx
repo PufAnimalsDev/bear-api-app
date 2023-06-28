@@ -1,23 +1,24 @@
 import React from 'react';
-import { Bears } from '../../types/Bears';
-import { BearsListItem } from '../BeersListItem';
+import { Beers } from '../../types/Beers';
+import { BeersListItem } from '../BeersListItem';
 import './BeersList.scss';
 
-interface BearsListProps {
-  bearsList: Bears[];
+interface BeersListProps {
+  beersList: Beers[];
 }
 
-export const BearsList: React.FC<BearsListProps> = ({ bearsList }) => {
+export const BeersList: React.FC<BeersListProps> = ({ beersList }) => {
   return (
     <div className='beersList'>
-      {bearsList.map((value) => {
+      {beersList.map((value) => {
         return (
-          <BearsListItem
+          <BeersListItem
             key={value.id}
             id={value.id}
             img={value.image_url}
             name={value.name}
             tagline={value.tagline}
+            beersList={beersList}
           />
         );
       })}

@@ -1,0 +1,28 @@
+@import '../../utils/mixins';
+
+.nothing-found {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  &__svg {
+    width: 270px;
+    margin-bottom: 40px;
+
+    @include tablet {
+      width: 350px;
+    }
+
+    @include desktop {
+      width: 350px;
+    }
+  }
+
+  &__title {
+    font-size: 50px;
+    margin-bottom: 40px;
+    color: #ffc930;
+    text-align: center;
+  }
+}
