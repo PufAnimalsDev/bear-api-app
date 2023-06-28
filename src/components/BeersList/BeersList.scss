@@ -1,5 +1,4 @@
-@import "../../utils/mixins";
-
+@import '../../utils/mixins';
 
 .beersList {
   display: grid;
@@ -9,11 +8,9 @@
 
   @include tablet {
     grid-template-columns: 1fr 1fr;
-
   }
 
   @include desktop {
     grid-template-columns: 1fr 1fr 1fr;
-
   }
 }

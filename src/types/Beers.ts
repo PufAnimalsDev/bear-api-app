@@ -1,4 +1,4 @@
-export interface Bears {
+export interface Beers {
   id: number;
   name: string;
   tagline: string;

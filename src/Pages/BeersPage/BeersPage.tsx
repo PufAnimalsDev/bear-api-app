@@ -1,6 +1,5 @@
 import { useMemo, useState, useEffect, useCallback } from 'react';
-import { Bears } from '../../types/Bears';
-import { BearsList } from '../../components/BearsList';
+import { Beers } from '../../types/Beers';
 import { Pagination } from '../../components/Pagination/Pagination';
 import { BeerPage } from '../BeerPage';
 import { useParams } from 'react-router-dom';
@@ -9,10 +8,11 @@ import { Loader } from '../../components/Loader';
 import { getBeers } from '../../api/beers';
 import { BeerFillter } from '../../components/BeerFilter/BeerFilter';
 import { Footer } from '../../components/Footer';
+import { BeersList } from '../../components/BeersList';
 
 export const BeersPage: React.FC = () => {
-  const [result, setResult] = useState<Bears[]>([]);
-  const [result2, setResult2] = useState<Bears[]>([]);
+  const [result, setResult] = useState<Beers[]>([]);
+  const [result2, setResult2] = useState<Beers[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -22,7 +22,7 @@ export const BeersPage: React.FC = () => {
 
   const loadBeers = async (
     URL: string,
-    setResult: (value: React.SetStateAction<Bears[]>) => void,
+    setResult: (value: React.SetStateAction<Beers[]>) => void,
   ) => {
     try {
       setIsLoading(true);
@@ -31,11 +31,9 @@ export const BeersPage: React.FC = () => {
     } catch (error) {
       setHasError(true);
     } finally {
-      setTimeout(
-        () => {
-          setIsLoading(false);
-        }, 1000);
-
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
     }
   };
 
@@ -48,20 +46,16 @@ export const BeersPage: React.FC = () => {
     return result.concat(result2);
   }, [result2, result]);
 
-
   const handleFilterBeers = useMemo(() => {
     setCurrentPage(1);
     return allBeers.filter((todo) => {
-      return todo.name
-        .toLowerCase()
-        .includes(query.toLowerCase());
+      return todo.name.toLowerCase().includes(query.toLowerCase());
     });
   }, [allBeers, query]);
 
   const indexOfLastBeer = currentPage * perPageValue;
   const indexOfFirstBeer = indexOfLastBeer - perPageValue;
   const lastPage = Math.ceil(handleFilterBeers.length / perPageValue);
-
 
   const currentBeers = useMemo(() => {
     return handleFilterBeers.slice(indexOfFirstBeer, indexOfLastBeer);
@@ -79,13 +73,9 @@ export const BeersPage: React.FC = () => {
     setCurrentPage(newPage);
   };
 
-
-
-  const handleQueryChange = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      setQuery(event.target.value);
-    }, [],
-  );
+  const handleQueryChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+    setQuery(event.target.value);
+  }, []);
 
   const handleQueryReset = useCallback(() => {
     setQuery('');
@@ -102,38 +92,36 @@ export const BeersPage: React.FC = () => {
   };
 
   return (
-
     <>
       {isLoading && <Loader />}
       {!isLoading && (
         <>
-          {
-            !hasError && beerId ? (
-              <BeerPage id={Number(beerId)}
-                bearsList={currentBeers} />
-            ) : (
-              <>
-                <Header headTitle='Beers' />
-                <div className='page-container container'>
-                  <BeerFillter
-                    query={query}
-                    onQueryChange={handleQueryChange}
-                    onQueryReset={handleQueryReset}
-                  />
-                  <BearsList bearsList={currentBeers} />
-                  <Pagination
-                    total={pages(lastPage)}
-                    currentPage={currentPage}
-                    onHandlePrevPage={handlePrevPage}
-                    onHandleNextPage={handleNextPage}
-                    lastPage={lastPage}
-                    onHandleChangePage={handleChangePage}
-                  />
-                </div><Footer /></>
-
-            )
-          }
-        </>)}
+          {!hasError && beerId ? (
+            <BeerPage id={Number(beerId)} beersList={currentBeers} />
+          ) : (
+            <>
+              <Header headTitle='Beers' />
+              <div className='page-container container'>
+                <BeerFillter
+                  query={query}
+                  onQueryChange={handleQueryChange}
+                  onQueryReset={handleQueryReset}
+                />
+                <BeersList beersList={currentBeers} />
+                <Pagination
+                  total={pages(lastPage)}
+                  currentPage={currentPage}
+                  onHandlePrevPage={handlePrevPage}
+                  onHandleNextPage={handleNextPage}
+                  lastPage={lastPage}
+                  onHandleChangePage={handleChangePage}
+                />
+              </div>
+              <Footer />
+            </>
+          )}
+        </>
+      )}
     </>
   );
 };

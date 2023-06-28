@@ -11,13 +11,8 @@ interface PaginationProps {
 }
 
 export const Pagination = (props: PaginationProps) => {
-  const {
-    total,
-    currentPage,
-    lastPage,
-    onHandlePrevPage,
-    onHandleNextPage,
-    onHandleChangePage } = props;
+  const { total, currentPage, lastPage, onHandlePrevPage, onHandleNextPage, onHandleChangePage } =
+    props;
 
   return (
     <div>
@@ -53,7 +48,6 @@ export const Pagination = (props: PaginationProps) => {
                 className={classNames('pagination__list-link', {
                   'pagination__list-link--is-current': currentPage === page,
                 })}
-
                 onClick={() => onHandleChangePage(page)}
               >
                 {page}

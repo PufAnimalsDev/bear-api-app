@@ -3,15 +3,14 @@
   cursor: pointer;
   display: flex;
   flex-direction: column;
-
 }
 
-.bears_item {
+.beers_item {
   display: flex;
   justify-content: center;
 
   &__content:hover {
-    box-shadow: 0 2px 16px rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
   }
 
   &__content {
@@ -36,7 +35,6 @@
     align-items: center;
     align-self: center;
 
-
     &__line {
       height: 1px;
       width: 70px;
@@ -56,7 +54,7 @@
   &__tagline {
     text-align: center;
     padding: 10px 5px;
-    color: grey
+    color: grey;
   }
 
   &__save-product {
@@ -70,7 +68,6 @@
 
     &:hover {
       border: 1px solid #ffc930;
-      ;
       cursor: pointer;
     }
 

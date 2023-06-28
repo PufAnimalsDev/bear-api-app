@@ -1,32 +1,31 @@
-@import "./mixins.scss";
-
+@import './mixins.scss';
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 * {
-    box-sizing: border-box;
-    color: #313237;
+  box-sizing: border-box;
+  color: #313237;
 }
 
 .page-container {
-    margin: 0 auto 100px;
-    max-width: 280px;
+  margin: 0 auto 100px;
+  max-width: 280px;
 
-    @include tablet {
-        padding: 0 20px;
+  @include tablet {
+    padding: 0 20px;
 
-        max-width: 640px;
-    }
+    max-width: 640px;
+  }
 
-    @include desktop {
-        padding: 0 20px;
+  @include desktop {
+    padding: 0 20px;
 
-        max-width: 1200px;
-    }
+    max-width: 1200px;
+  }
 }
