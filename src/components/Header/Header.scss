@@ -62,9 +62,7 @@
 
     @include desktop {
         padding: 20px 80px;
-
     }
-
 
     &__item--home {
         display: block;
@@ -83,7 +81,7 @@
         transform: rotate(25deg);
         text-decoration: none;
         justify-content: right;
-        align-items: start;
+        align-items: flex-start;
 
         &-num {
             display: flex;

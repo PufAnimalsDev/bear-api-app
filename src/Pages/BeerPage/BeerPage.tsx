@@ -7,7 +7,7 @@ import './BeerPage.scss';
 import { Header } from '../../components/Header/Header';
 import { useGlobalContext } from '../../context/GlobalContextProvider';
 import { Bears } from '../../types/Bears';
-
+import { SwiperOnBeerPage } from '../../components/SwiperOnBeerPage';
 interface BeerPageProps {
   id: number;
   bearsList: Bears[];
@@ -20,6 +20,7 @@ export const BeerPage = (props: BeerPageProps) => {
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { addToFavourites, favourites } = useGlobalContext();
+
 
   const isFavourited = favourites
     .some(beerToFind => beerToFind.id === id);
@@ -136,7 +137,9 @@ export const BeerPage = (props: BeerPageProps) => {
                   }
                 </div>
               </div>
+              <SwiperOnBeerPage beerList={bearsList} />
             </div >
+
           ) : (
             <p>Error</p>
           )}
