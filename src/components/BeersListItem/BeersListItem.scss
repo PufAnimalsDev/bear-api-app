@@ -65,6 +65,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-color: #ffffff;
+    padding: 0;
 
     &:hover {
       border: 1px solid #ffc930;
@@ -75,7 +76,8 @@
       background-image: url('../../images/Heart-filled.svg');
       background-repeat: no-repeat;
       background-position: center;
-      border: 1px solid #e2e6e9;
+      padding: 0;
+
     }
   }
 }
