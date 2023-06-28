@@ -1,13 +1,26 @@
 {
   "files": {
-    "main.css": "/bear-api-app/static/css/main.52dbe308.css",
-    "main.js": "/bear-api-app/static/js/main.38c4c5f9.js",
-    "index.html": "/bear-api-app/index.html",
-    "main.52dbe308.css.map": "/bear-api-app/static/css/main.52dbe308.css.map",
-    "main.38c4c5f9.js.map": "/bear-api-app/static/js/main.38c4c5f9.js.map"
+    "main.css": "/beer-api-app/static/css/main.52eaf81c.css",
+    "main.js": "/beer-api-app/static/js/main.35010fe6.js",
+    "static/media/fa-solid-900.ttf": "/beer-api-app/static/media/fa-solid-900.4a2cd718d7031b732e76.ttf",
+    "static/media/fa-brands-400.ttf": "/beer-api-app/static/media/fa-brands-400.150de8eaa454d669c405.ttf",
+    "static/media/fa-solid-900.woff2": "/beer-api-app/static/media/fa-solid-900.bb975c966c37455a1bc3.woff2",
+    "static/media/fa-brands-400.woff2": "/beer-api-app/static/media/fa-brands-400.e033a13ee751afc1860c.woff2",
+    "static/media/fa-regular-400.ttf": "/beer-api-app/static/media/fa-regular-400.d87474231f4192884802.ttf",
+    "static/media/logo512.png": "/beer-api-app/static/media/logo512.59a821116db6007bf185.png",
+    "static/media/fa-regular-400.woff2": "/beer-api-app/static/media/fa-regular-400.3223dc79c1adee56370b.woff2",
+    "static/media/House18.svg": "/beer-api-app/static/media/House18.f1ef1f07b963aeacdb92.svg",
+    "static/media/fa-v4compatibility.ttf": "/beer-api-app/static/media/fa-v4compatibility.0e3a648be390bd8cb094.ttf",
+    "static/media/fa-v4compatibility.woff2": "/beer-api-app/static/media/fa-v4compatibility.68577e40f3e70067b5da.woff2",
+    "static/media/Heart-header.svg": "/beer-api-app/static/media/Heart-header.fae5f483014814face09.svg",
+    "static/media/Heart.svg": "/beer-api-app/static/media/Heart.935d05dce2643d76c0ea.svg",
+    "static/media/Heart-filled.svg": "/beer-api-app/static/media/Heart-filled.0f63a9433e1ad3cf4072.svg",
+    "index.html": "/beer-api-app/index.html",
+    "main.52eaf81c.css.map": "/beer-api-app/static/css/main.52eaf81c.css.map",
+    "main.35010fe6.js.map": "/beer-api-app/static/js/main.35010fe6.js.map"
   },
   "entrypoints": [
-    "static/css/main.52dbe308.css",
-    "static/js/main.38c4c5f9.js"
+    "static/css/main.52eaf81c.css",
+    "static/js/main.35010fe6.js"
   ]
 }
