@@ -8,6 +8,7 @@ import { Header } from '../../components/Header/Header';
 import { Loader } from '../../components/Loader';
 import { getBeers } from '../../api/beers';
 import { BeerFillter } from '../../components/BeerFilter/BeerFilter';
+import { Footer } from '../../components/Footer';
 
 export const BeersPage: React.FC = () => {
   const [result, setResult] = useState<Bears[]>([]);
@@ -128,7 +129,7 @@ export const BeersPage: React.FC = () => {
                     lastPage={lastPage}
                     onHandleChangePage={handleChangePage}
                   />
-                </div></>
+                </div><Footer /></>
 
             )
           }

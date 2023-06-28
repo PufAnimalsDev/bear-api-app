@@ -8,6 +8,7 @@ import { Header } from '../../components/Header/Header';
 import { useGlobalContext } from '../../context/GlobalContextProvider';
 import { Bears } from '../../types/Bears';
 import { SwiperOnBeerPage } from '../../components/SwiperOnBeerPage';
+import { Footer } from '../../components/Footer';
 interface BeerPageProps {
   id: number;
   bearsList: Bears[];
@@ -143,6 +144,7 @@ export const BeerPage = (props: BeerPageProps) => {
           ) : (
             <p>Error</p>
           )}
+          <Footer />
         </>
       )
       }

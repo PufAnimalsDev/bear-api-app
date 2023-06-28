@@ -1,6 +1,7 @@
 import { useGlobalContext, } from "../../context/GlobalContextProvider"
 import { BearsListItem } from '../../components/BeersListItem';
 import { Header } from "../../components/Header/Header";
+import { Footer } from "../../components/Footer";
 
 export const FavouritesPage = () => {
     const { favourites } = useGlobalContext();
@@ -24,6 +25,8 @@ export const FavouritesPage = () => {
                     }
                 </div>
             </div>
+            <Footer />
+
         </>
     )
 }
