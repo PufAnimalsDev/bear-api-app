@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect } from 'react';
+import { useMemo, useState, useEffect, useCallback } from 'react';
 import { Bears } from '../../types/Bears';
 import { BearsList } from '../../components/BearsList';
 import { Pagination } from '../../components/Pagination/Pagination';
@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom';
 import { Header } from '../../components/Header/Header';
 import { Loader } from '../../components/Loader';
 import { getBeers } from '../../api/beers';
+import { BeerFillter } from '../../components/BeerFilter/BeerFilter';
 
 export const BeersPage: React.FC = () => {
   const [result, setResult] = useState<Bears[]>([]);
@@ -16,6 +17,7 @@ export const BeersPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const perPageValue = 12;
   const { beerId } = useParams();
+  const [query, setQuery] = useState('');
 
   const loadBeers = async (
     URL: string,
@@ -38,30 +40,31 @@ export const BeersPage: React.FC = () => {
 
   useEffect(() => {
     loadBeers('?per_page=80', setResult);
-    loadBeers('?page=2&per_page=40', setResult2);
+    loadBeers('?page=3&per_page=40', setResult2);
   }, []);
 
   const allBeers = useMemo(() => {
     return result.concat(result2);
   }, [result2, result]);
 
+
+  const handleFilterBeers = useMemo(() => {
+    setCurrentPage(1);
+    return allBeers.filter((todo) => {
+      return todo.name
+        .toLowerCase()
+        .includes(query.toLowerCase());
+    });
+  }, [allBeers, query]);
+
   const indexOfLastBeer = currentPage * perPageValue;
   const indexOfFirstBeer = indexOfLastBeer - perPageValue;
-  const lastPage = Math.ceil(allBeers.length / perPageValue);
+  const lastPage = Math.ceil(handleFilterBeers.length / perPageValue);
 
-  const pages = (amount: number) => {
-    const numberedPages = [];
-
-    for (let i = 1; i <= amount; i += 1) {
-      numberedPages.push(i);
-    }
-
-    return numberedPages;
-  };
 
   const currentBeers = useMemo(() => {
-    return allBeers.slice(indexOfFirstBeer, indexOfLastBeer);
-  }, [indexOfFirstBeer, indexOfLastBeer, allBeers]);
+    return handleFilterBeers.slice(indexOfFirstBeer, indexOfLastBeer);
+  }, [indexOfFirstBeer, indexOfLastBeer, handleFilterBeers]);
 
   const handleNextPage = () => {
     setCurrentPage((prevPage) => (prevPage !== lastPage ? currentPage + 1 : currentPage));
@@ -73,6 +76,28 @@ export const BeersPage: React.FC = () => {
 
   const handleChangePage = (newPage: number) => {
     setCurrentPage(newPage);
+  };
+
+
+
+  const handleQueryChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setQuery(event.target.value);
+    }, [],
+  );
+
+  const handleQueryReset = useCallback(() => {
+    setQuery('');
+  }, []);
+
+  const pages = (amount: number) => {
+    const numberedPages = [];
+
+    for (let i = 1; i <= amount; i += 1) {
+      numberedPages.push(i);
+    }
+
+    return numberedPages;
   };
 
   return (
@@ -89,7 +114,11 @@ export const BeersPage: React.FC = () => {
               <>
                 <Header headTitle='Beers' />
                 <div className='page-container container'>
-
+                  <BeerFillter
+                    query={query}
+                    onQueryChange={handleQueryChange}
+                    onQueryReset={handleQueryReset}
+                  />
                   <BearsList bearsList={currentBeers} />
                   <Pagination
                     total={pages(lastPage)}

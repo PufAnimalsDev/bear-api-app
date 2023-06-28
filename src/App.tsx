@@ -2,6 +2,8 @@ import { Route, Routes } from 'react-router-dom';
 import { BeersPage } from './Pages/BeersPage/BeersPage';
 import { FavouritesPage } from './Pages/FavouritesPage';
 import './App.scss';
+import 'bulma/css/bulma.css';
+import '@fortawesome/fontawesome-free/css/all.css';
 
 export const App = () => (
   <div className='main'>
